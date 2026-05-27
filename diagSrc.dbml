@@ -1,0 +1,92 @@
+Table User {
+  id varchar [primary key, not null]
+  username varchar [unique, not null]
+  name varchar [not null]
+  email varchar [unique, not null]
+  password varchar [not null]
+  pfpUrl varchar [null]
+  createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table Session {
+  id varchar [primary key, not null]
+  userId varchar [not null]
+  createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  expiresAt timestamp [null]
+}
+
+Table DailyHabit {
+  id integer [primary key, increment, not null]
+  name varchar [not null]
+  details varchar [null]
+  iconPath varchar [not null]
+  timeGoal integer [not null, default: 0]
+  timeSpent integer [not null, default: 0]
+  userId varchar [not null]
+  createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table WeeklyHabit {
+  id integer [primary key, increment, not null]
+  name varchar [not null]
+  details varchar [null]
+  iconPath varchar [not null]
+  userId varchar [not null]
+  createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table WeeklyHabitDay {
+  id integer [primary key, increment, not null]
+  habitId integer [not null]
+  day varchar [null]
+}
+
+Table ActivityType {
+  id integer [primary key, increment, not null]
+  name varchar [not null]
+  details varchar [null]
+  color varchar [not null, default: "#c8e6c9"]
+  iconPath varchar [not null]
+  visibility varchar [not null, default: "private"]
+  userId varchar [not null]
+}
+
+Table ActivityEntry {
+  id integer [primary key, increment, not null]
+  date timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  note varchar [not null]
+  typeId integer [not null]
+}
+
+Table Notification {
+  id varchar [primary key, not null]
+  createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  payload varchar [not null]
+  type varchar [not null]
+  userId varchar [not null]
+}
+
+Table DailyHabitStat {
+  id integer [primary key, increment, not null]
+  completed boolean [not null]
+  date timestamp [not null]
+  habitId integer [null]
+  streakC integer [not null, default: 0]
+  streakL integer [not null, default: 0]
+}
+
+Ref: Session.userId > User.id [delete: restrict, update: cascade]
+
+Ref: DailyHabit.userId > User.id [delete: restrict, update: cascade]
+
+Ref: WeeklyHabit.userId > User.id [delete: restrict, update: cascade]
+
+Ref: ActivityType.userId > User.id [delete: restrict, update: cascade]
+
+Ref: ActivityEntry.typeId > ActivityType.id [delete: cascade, update: cascade]
+
+Ref: Notification.userId > User.id [delete: restrict, update: cascade]
+
+Ref: WeeklyHabitDay.habitId > WeeklyHabit.id [delete: cascade, update: cascade]
+
+Ref: DailyHabitStat.habitId > DailyHabit.id [delete: set null, update: cascade]
