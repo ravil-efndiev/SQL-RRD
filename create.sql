@@ -36,9 +36,9 @@ CREATE TABLE `WeeklyHabit` (
 );
 
 CREATE TABLE `WeeklyHabitDay` (
-  `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `habitId` INTEGER NOT NULL,
-  `day` VARCHAR(255) NOT NULL
+  `day` ENUM ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun') NOT NULL,
+   PRIMARY KEY (`day`, `habitId`)
 );
 
 CREATE TABLE `ActivityType` (

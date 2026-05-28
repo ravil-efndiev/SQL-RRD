@@ -36,9 +36,12 @@ Table WeeklyHabit {
 }
 
 Table WeeklyHabitDay {
-  id integer [primary key, increment, not null]
   habitId integer [not null]
-  day varchar [null]
+  day days [null]
+
+  indexes {
+    (day, habitId) [pk]
+  }
 }
 
 Table ActivityType {
@@ -90,3 +93,19 @@ Ref: Notification.userId > User.id [delete: restrict, update: cascade]
 Ref: WeeklyHabitDay.habitId > WeeklyHabit.id [delete: cascade, update: cascade]
 
 Ref: DailyHabitStat.habitId > DailyHabit.id [delete: set null, update: cascade]
+
+enum days {
+  Mon
+  Tue
+  Wed
+  Thu
+  Fri
+  Sat
+  Sun
+}
+
+enum visibilities {
+  private
+  everyone
+  friends
+}
