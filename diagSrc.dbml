@@ -50,7 +50,7 @@ Table ActivityType {
   details varchar [null]
   color varchar [not null, default: "#c8e6c9"]
   iconPath varchar [not null]
-  visibility varchar [not null, default: "private"]
+  visibility visibilities [not null, default: visibilities.private]
   userId varchar [not null]
 }
 

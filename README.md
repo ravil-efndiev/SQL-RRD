@@ -6,10 +6,10 @@
 
 ## 👥 Shared tasks
 
-- [ ] Create ER diagram
-- [ ] Ensure ER diagram matches migration table names
-- [ ] Fix inconsistencies between ER diagram and migrations
-- [ ] Normalize database to 1NF, 2NF, 3NF
+- [x] Create ER diagram
+- [x] Ensure ER diagram matches migration table names
+- [x] Fix inconsistencies between ER diagram and migrations
+- [x] Normalize database to 1NF, 2NF, 3NF
 
 ---
 
@@ -17,8 +17,8 @@
 
 ## 👥 Shared tasks
 
-- [ ] Create `create.sql` (clean DDL SQL)
-- [ ] Refactor `create.sql` to generic SQL style
+- [x] Create `create.sql` (clean DDL SQL)
+- [x] Refactor `create.sql` to generic SQL style
 - [ ] Create `insert.sql`
 - [ ] Add at least 7 records per table
 
