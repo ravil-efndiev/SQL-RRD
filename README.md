@@ -45,8 +45,8 @@
 
 ## 👤 Denys
 
-- [ ] Create title page (topic + names)
-- [ ] Add table of contents
+- [x] Create title page (topic + names)
+- [x] Add table of contents
 - [ ] Describe database design
 - [ ] Insert ER diagram
 - [ ] Describe all entities (attributes, types, meaning)
@@ -67,8 +67,8 @@
 
 ## 👤 Denys
 
-- [ ] Add page numbers
-- [ ] Add header with project name
+- [x] Add page numbers
+- [x] Add header with project name
 - [ ] Add image captions
 - [ ] Follow typography rules
 
