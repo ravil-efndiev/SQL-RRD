@@ -24,6 +24,7 @@ Table DailyHabit {
   timeSpent integer [not null, default: 0]
   userId varchar [not null]
   createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  isArchived bool [not null, default: false]
 }
 
 Table WeeklyHabit {
@@ -33,6 +34,7 @@ Table WeeklyHabit {
   iconPath varchar [not null]
   userId varchar [not null]
   createdAt timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  isArchived bool [not null, default: false]
 }
 
 Table WeeklyHabitDay {
@@ -44,6 +46,14 @@ Table WeeklyHabitDay {
   }
 }
 
+Table WeeklyHabitStat {
+  id integer [primary key, increment, not null]
+  habitId integer [not null]
+  completed bool [not null, default: false]
+  weekNumber integer [not null]
+  date timestamp [not null]
+}
+
 Table ActivityType {
   id integer [primary key, increment, not null]
   name varchar [not null]
@@ -52,6 +62,7 @@ Table ActivityType {
   iconPath varchar [not null]
   visibility visibilities [not null, default: visibilities.private]
   userId varchar [not null]
+  isArchived bool [not null, default: false]
 }
 
 Table ActivityEntry {
@@ -86,13 +97,15 @@ Ref: WeeklyHabit.userId > User.id [delete: restrict, update: cascade]
 
 Ref: ActivityType.userId > User.id [delete: restrict, update: cascade]
 
-Ref: ActivityEntry.typeId > ActivityType.id [delete: cascade, update: cascade]
+Ref: ActivityEntry.typeId > ActivityType.id [delete: restrict, update: cascade]
 
 Ref: Notification.userId > User.id [delete: restrict, update: cascade]
 
-Ref: WeeklyHabitDay.habitId > WeeklyHabit.id [delete: cascade, update: cascade]
+Ref: WeeklyHabitDay.habitId > WeeklyHabit.id [delete: restrict, update: cascade]
 
-Ref: DailyHabitStat.habitId > DailyHabit.id [delete: set null, update: cascade]
+Ref: DailyHabitStat.habitId > DailyHabit.id [delete: restrict, update: cascade]
+
+Ref: WeeklyHabitStat.habitId > WeeklyHabit.id [delete: restrict, update: cascade]
 
 enum days {
   Mon
