@@ -24,6 +24,7 @@ CREATE TABLE `DailyHabit` (
   `timeSpent` INTEGER NOT NULL DEFAULT 0,
   `userId` VARCHAR(255) NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP)
+  `isArchived` bool NOT NULL DEFAULT false
 );
 
 CREATE TABLE `WeeklyHabit` (
@@ -33,12 +34,21 @@ CREATE TABLE `WeeklyHabit` (
   `iconPath` VARCHAR(255) NOT NULL,
   `userId` VARCHAR(255) NOT NULL,
   `createdAt` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP)
+  `isArchived` bool NOT NULL DEFAULT false
 );
 
 CREATE TABLE `WeeklyHabitDay` (
   `habitId` INTEGER NOT NULL,
   `day` ENUM ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun') NOT NULL,
    PRIMARY KEY (`day`, `habitId`)
+);
+
+CREATE TABLE `WeeklyHabitStat` (
+  `id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `habitId` integer NOT NULL,
+  `completed` bool NOT NULL DEFAULT false,
+  `weekNumber` integer NOT NULL,
+  `date` timestamp NOT NULL
 );
 
 CREATE TABLE `ActivityType` (
@@ -49,6 +59,7 @@ CREATE TABLE `ActivityType` (
   `iconPath` VARCHAR(255) NOT NULL,
   `visibility` ENUM('everyone', 'friends', 'private') NOT NULL DEFAULT 'private',
   `userId` VARCHAR(255) NOT NULL
+  `isArchived` bool NOT NULL DEFAULT false
 );
 
 CREATE TABLE `ActivityEntry` (
@@ -83,10 +94,12 @@ ALTER TABLE `WeeklyHabit` ADD FOREIGN KEY (`userId`) REFERENCES `User` (`id`) ON
 
 ALTER TABLE `ActivityType` ADD FOREIGN KEY (`userId`) REFERENCES `User` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
-ALTER TABLE `ActivityEntry` ADD FOREIGN KEY (`typeId`) REFERENCES `ActivityType` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ActivityEntry` ADD FOREIGN KEY (`typeId`) REFERENCES `ActivityType` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 ALTER TABLE `Notification` ADD FOREIGN KEY (`userId`) REFERENCES `User` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
-ALTER TABLE `WeeklyHabitDay` ADD FOREIGN KEY (`habitId`) REFERENCES `WeeklyHabit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `WeeklyHabitDay` ADD FOREIGN KEY (`habitId`) REFERENCES `WeeklyHabit` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
-ALTER TABLE `DailyHabitStat` ADD FOREIGN KEY (`habitId`) REFERENCES `DailyHabit` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `DailyHabitStat` ADD FOREIGN KEY (`habitId`) REFERENCES `DailyHabit` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE `WeeklyHabitStat` ADD FOREIGN KEY (`habitId`) REFERENCES `WeeklyHabit` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
