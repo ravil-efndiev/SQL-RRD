@@ -79,8 +79,8 @@
 ## 👤 Roman
 
 - [x] Prepare 7–10 minute presentation
-- [ ] Explain project overview
-- [ ] Present database design
-- [ ] Show main features
+- [x] Explain project overview
+- [x] Present database design
+- [x] Show main features
 - [ ] Split speaking between team members
 - [ ] Practice presentation
