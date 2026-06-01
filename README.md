@@ -78,7 +78,7 @@
 
 ## 👤 Roman
 
-- [ ] Prepare 7–10 minute presentation
+- [x] Prepare 7–10 minute presentation
 - [ ] Explain project overview
 - [ ] Present database design
 - [ ] Show main features
