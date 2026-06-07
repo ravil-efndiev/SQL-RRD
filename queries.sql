@@ -6,7 +6,7 @@ SELECT
     s.expiresAt
 FROM `Session` s
 JOIN `User` u ON s.userId = u.id
-WHERE u.username = 'alice_w'
+WHERE u.username = 'jnovak'
   AND (s.expiresAt IS NULL OR s.expiresAt > CURRENT_TIMESTAMP);
 
 
