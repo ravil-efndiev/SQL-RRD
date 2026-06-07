@@ -19,8 +19,8 @@
 
 - [x] Create `create.sql` (clean DDL SQL)
 - [x] Refactor `create.sql` to generic SQL style
-- [ ] Create `insert.sql`
-- [ ] Add at least 7 records per table
+- [x] Create `insert.sql`
+- [x] Add at least 7 records per table
 
 ---
 
@@ -28,16 +28,16 @@
 
 ## 👥 Shared tasks
 
-- [ ] Write 15 queries
-- [ ] At least 13 queries with WHERE
-- [ ] At least 2 queries with ORDER BY
-- [ ] At least 2 queries with LIMIT
-- [ ] At least 3 queries with LIKE
-- [ ] At least 6 queries with JOIN ON
-- [ ] At least 2 queries with LEFT/RIGHT JOIN
-- [ ] At least 1 query with aggregate functions
-- [ ] At least 1 query with GROUP BY + HAVING
-- [ ] At least 1 query with calculations
+- [x] Write 15 queries
+- [x] At least 13 queries with WHERE
+- [x] At least 2 queries with ORDER BY
+- [x] At least 2 queries with LIMIT
+- [x] At least 3 queries with LIKE
+- [x] At least 6 queries with JOIN ON
+- [x] At least 2 queries with LEFT/RIGHT JOIN
+- [x] At least 1 query with aggregate functions
+- [x] At least 1 query with GROUP BY + HAVING
+- [x] At least 1 query with calculations
 
 ---
 
@@ -47,19 +47,19 @@
 
 - [x] Create title page (topic + names)
 - [x] Add table of contents
-- [ ] Describe database design
-- [ ] Insert ER diagram
-- [ ] Describe all entities (attributes, types, meaning)
-- [ ] Explain database usage in web app (min. 3 use cases)
-- [ ] Describe `create.sql`
-- [ ] Describe `insert.sql`
-- [ ] Describe `queries.sql`
-- [ ] Explain Git usage
-- [ ] Add remote repository link + screenshot
-- [ ] Add commit history screenshot
-- [ ] Explain use of AI
-- [ ] Add list of images
-- [ ] Add sources
+- [x] Describe database design
+- [x] Insert ER diagram
+- [x] Describe all entities (attributes, types, meaning)
+- [x] Explain database usage in web app (min. 3 use cases)
+- [x] Describe `create.sql`
+- [x] Describe `insert.sql`
+- [x] Describe `queries.sql`
+- [x] Explain Git usage
+- [x] Add remote repository link + screenshot
+- [x] Add commit history screenshot
+- [x] Explain use of AI
+- [x] Add list of images
+- [x] Add sources
 
 ---
 
@@ -69,8 +69,8 @@
 
 - [x] Add page numbers
 - [x] Add header with project name
-- [ ] Add image captions
-- [ ] Follow typography rules
+- [x] Add image captions
+- [x] Follow typography rules
 
 ---
 
